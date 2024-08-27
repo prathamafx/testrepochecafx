@@ -1,0 +1,1065 @@
+import { clientCode } from "./Config";
+
+const PATH_FOR_API = clientCode ? clientCode : "";
+const PATH_FOR_W_O_TOKEN = "woToken/";
+const PATH_FOR_TEST = "test/";
+
+// Path for API module
+const PATH_FOR_ADMIN_MODULE = PATH_FOR_API + "admin/";
+const PATH_FOR_AGENT_ONBOARDING_MODULE = PATH_FOR_API + "agentOnBoard/";
+const PATH_FOR_PAYOUT_CONFIG_MODULE = PATH_FOR_API + "payoutConfig/";
+const PATH_FOR_COLLECTION_CONFIG_MODULE = PATH_FOR_API + "collectionConfig/";
+const PATH_FOR_INVOICE_MODULE = PATH_FOR_API + "invoicing/";
+const PATH_THIRD_PARTY_MODULE = PATH_FOR_API + "thirdParty/";
+const PATH_FOR_NOTIFICATION = PATH_FOR_API + "notification/";
+const PATH_FOR_CHART_CATEGORY = PATH_FOR_ADMIN_MODULE + "chartCategory/";
+const PATH_FOR_TABLE_CATEGORY = PATH_FOR_ADMIN_MODULE + "tableCategory/";
+const PATH_FOR_REPORTS_CATEGORY = PATH_FOR_ADMIN_MODULE + "reportCategory/";
+const PATH_FOR_EMAIL_AND_MOBILE_VERIFICATION =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agent/";
+// const PATH_FOR_INCENTIVES_PAYOUT = PATH_FOR_API + "staffOnBoard/";
+const PATH_FOR_INCENTIVES_CONFIG = PATH_FOR_API + "incentiveConfig/";
+const PATH_FOR_INCENTIVE_MODULE = PATH_FOR_API + "incentiveConfig/";
+const PATH_FOR_STAFF_ONBOARD_MODULE = PATH_FOR_API + "staffOnBoard/";
+const PATH_FOR_INCENTIVE_DASHBOARD = PATH_FOR_API + "dashboard/";
+const PATH_FOR_IE_UTILITY = PATH_FOR_API + "ieUtility/";
+
+// Path for Prefix
+const PATH_FOR_AGENT_ONBOARDING_PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agentDetails/";
+const PATH_FOR_DASHBOARD__PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "dashboard/";
+const PATH_FOR_AGENT_SETTING_PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agentSetting/";
+const PATH_FOR_AGENT_AUTHORIZED_REPRESENTATIVE =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agentAuthorisedRepresentative/";
+const PATH_FOR_AGENT_DIRECTORS =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agentDirector/";
+const PATH_FOR_AGENT_BANK_PREFIX = PATH_FOR_AGENT_ONBOARDING_MODULE + "bank/";
+const PATH_FOR_AGENT_STATUS_PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agentStatus/";
+const PATH_FOR_AGENT_PINCODE_PREFIX = PATH_FOR_ADMIN_MODULE + "pinCode/";
+const PATH_FOR_STATE_OFFICE_PREFIX = PATH_FOR_ADMIN_MODULE + "stateOffice/";
+const PATH_FOR_STATE_PREFIX = PATH_FOR_ADMIN_MODULE + "state/";
+const PATH_FOR_HEAD_OFFICE_PREFIX = PATH_FOR_ADMIN_MODULE + "headOffice/";
+const PATH_FOR_BRANCH_PREFIX = PATH_FOR_ADMIN_MODULE + "branchOffice/";
+const PATH_FOR_INVOICE_BILLING_SETUP_PREFIX =
+  PATH_FOR_INVOICE_MODULE + "billingSetup/";
+const PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX =
+  PATH_FOR_INVOICE_MODULE + "applicationDetail/";
+const PATH_FOR_INVOICE_GENERIC_API_PREFIX =
+  PATH_FOR_INVOICE_MODULE + "generic/";
+// const PATH_FOR_INVOICE_PREFIX = PATH_FOR_INVOICE_MODULE + "billingSetup/";
+const PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX =
+  PATH_FOR_INVOICE_MODULE + "debitNote/";
+const PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX =
+  PATH_FOR_INVOICE_MODULE + "creditNote/";
+const PATH_FOR_INVOICE_GENERIC_PREFIX = PATH_FOR_INVOICE_MODULE + "generic/";
+const PATH_FOR_AD_HOC_PAYOUT_PREFIX = PATH_FOR_INVOICE_MODULE + "adhocPayout/";
+const PATH_FOR_INVOICE_PREFIX = PATH_FOR_INVOICE_MODULE + "invoice/";
+const PATH_FOR_ADHOC_PREFIX = PATH_FOR_INVOICE_MODULE + "adhocPayout/";
+const PATH_FOR_AGENT_GST_DETAILS_PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agentGSTDetails/";
+const PATH_FOR_NATURE_OF_PAYMENT_PREFIX =
+  PATH_FOR_INVOICE_MODULE + "natureOfPayment/";
+const PATH_FOR_DOCUMENTS = PATH_FOR_ADMIN_MODULE + "document/";
+
+const PATH_FOR_AGENCY_MASTER_PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agencyMaster/";
+const PATH_FOR_PRODUCT_MASTER_PREFIX =
+  PATH_FOR_PAYOUT_CONFIG_MODULE + "productMaster/";
+const PATH_FOR_SCHEME_SETUP_PREFIX =
+  PATH_FOR_PAYOUT_CONFIG_MODULE + "schemeSetup/";
+const PATH_FOR_AGENT_SCHEME_SETUP_PREFIX =
+  PATH_FOR_PAYOUT_CONFIG_MODULE + "agentSchemeSetup/";
+
+const PATH_FOR_ROLE_PREFIX = PATH_FOR_ADMIN_MODULE + "role/";
+
+const PATH_FOR_ADMIN_PREFIX = PATH_FOR_ADMIN_MODULE + "login/";
+const PATH_FOR_GENERIC_PREFIX = PATH_FOR_ADMIN_MODULE + "generic/";
+const PATH_FOR_NOTIFICATION_PREFIX = PATH_FOR_ADMIN_MODULE + "notification/";
+const PATH_FOR_USER_PREFIX = PATH_FOR_ADMIN_MODULE + "user/";
+const PATH_FOR_BRANCH_OFFICE_PREFIX = PATH_FOR_ADMIN_MODULE + "branchOffice/";
+const PATH_FOR_KYC_PREFIX = PATH_THIRD_PARTY_MODULE + "kyc/";
+const PATH_FOR_HRMS_PREFIX = PATH_THIRD_PARTY_MODULE + "hrms/";
+const PATH_FOR_ALL_NOTIFICATION_PREFIX =
+  PATH_FOR_NOTIFICATION + "notificationDetail/";
+const PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX =
+  PATH_FOR_COLLECTION_CONFIG_MODULE + "schemeSetup/";
+const EMAIL_AND_MOBILE_NUMBER_PRFIX =
+  PATH_FOR_EMAIL_AND_MOBILE_VERIFICATION + "verification/";
+
+const PATH_FOR_SYSTEM_SETTING_PREFIX = PATH_FOR_ADMIN_MODULE + "systemSetting/";
+const PATH_FOR_APPROVAL_MANAGEMENT_PREFIX =
+  PATH_FOR_ADMIN_MODULE + "approvalManagement/";
+const PATH_FOR_TERMS_AND_CONDITIONS_PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "termAndCondition/";
+const PATH_FOR_AGREEMENT_PREFIX =
+  PATH_FOR_AGENT_ONBOARDING_MODULE + "agreement/";
+
+const PATH_FOR_VALIDATE_EMAIL_AND_MOBILE =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "validate/";
+const PATH_FOR_SCHEME_INCENTIVE_PREFIX =
+  PATH_FOR_INCENTIVE_MODULE + "schemeSetup/";
+const PATH_FOR_EMPLOYEE_TYPE_PREFIX =
+  PATH_FOR_STAFF_ONBOARD_MODULE + "employeeType/";
+
+const PATH_FOR_INCENTIVES_PAYOUT_PREFIX =
+  PATH_FOR_STAFF_ONBOARD_MODULE + "employeeType/";
+
+const PATH_FOR_STAFF_HIERARCHY_PREFIX =
+  PATH_FOR_STAFF_ONBOARD_MODULE + "staffHierarchy/";
+const PATH_FOR_IMPORT_PREFIX = PATH_FOR_AGENT_ONBOARDING_MODULE + "import/";
+
+const PATH_FOR_IMPORT_REPORTS = PATH_FOR_IE_UTILITY + "import/";
+
+// PATH_FOR_STAFF_ONBOARD_MODULE + "employeeHierarchy/";
+// PATH_FOR_STAFF_ONBOARD_MODULE + "employeeHierarchy/";
+// PATH_FOR_STAFF_ONBOARD_MODULE + "employeeHierarchy/";
+
+const PATH_FOR_INCENTIVES_SCHEME_SETUP_PREFIX =
+  PATH_FOR_INCENTIVES_CONFIG + "schemeSetup/";
+
+// const PATH_FOR_EMPLOYEE_TYPE_LIST_PREFIX =
+//   PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "dropdown/";
+
+const PATH_FOR_EMPLOYEE_PREFIX =
+  PATH_FOR_STAFF_ONBOARD_MODULE + 'employee/';
+
+const PATH_FOR_DROPDOWN_PREFIX =
+  PATH_FOR_EMPLOYEE_PREFIX + 'dropdown/';
+
+const EMPLOYEE_PREFIX = PATH_FOR_STAFF_ONBOARD_MODULE + "employee/";
+
+const PATH_FOR_INCENTIVES_PREFIX = "incentives/";
+const PATH_FOR_INCENTIVE_COST_SHEET_PREFIX =
+  PATH_FOR_INVOICE_MODULE + "incentives/";
+
+// Agent Onboarding APIs
+export const GET_DATA_FOR_AGENT_FILTER_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getDataForAgentFilter";
+export const GET_PRE_AGENT_LIST_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getPreAgentPage";
+export const GET_AGENT_LIST_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getAgentPage";
+export const GET_DATA_FOR_AGENT_SAVE_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getDataForAgentSave";
+export const SAVE_AGENT_API = PATH_FOR_AGENT_ONBOARDING_PREFIX + "saveAgent";
+export const GET_AGENT_DETAILS_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getAgentDetail";
+export const CHECK_PAN_CARD_REGISTERED_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "checkPanCardRegistered";
+export const DELETE_AGENT_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "deleteAgent";
+export const GET_AGENT_NPA_PAGE_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getAgentNPAPage";
+export const GET_AGENT_RENEW_PAGE_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getAgentRenewPage";
+export const UPDATE_AGENT_FOR_RENEW_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "updateAgentForRenew";
+export const SAVE_AGENT_NPA_SETTING_API =
+  PATH_FOR_AGENT_SETTING_PREFIX + "saveAgentNPASetting";
+export const GET_AGENT_NPA_SETTING_API =
+  PATH_FOR_AGENT_SETTING_PREFIX + "getAgentNPASetting";
+export const PATH_FOR_EMAIL_AND_MOBILE_VERIFICATION_API =
+  EMAIL_AND_MOBILE_NUMBER_PRFIX + "send";
+export const GL_CODE_REQUIRED_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "checkGlCodeRequired";
+export const IS_MOBILE_NUMBER_REGISTERED_API =
+  PATH_FOR_VALIDATE_EMAIL_AND_MOBILE + "mobileNo";
+export const IS_EMAIL_REGISTERED_API =
+  PATH_FOR_VALIDATE_EMAIL_AND_MOBILE + "email";
+
+// Agent Authtorized Representatives APIs
+export const GET_AGENT_AUTHORIZED_REPRESENTATIVE_DOCUMENTS_API =
+  PATH_FOR_AGENT_AUTHORIZED_REPRESENTATIVE +
+  "getAgentAuthorisedRepresentativeDocuments";
+
+// Agent Director APIs
+export const GET_AGENT_DIRECTOR_DOCUMENTS_API =
+  PATH_FOR_AGENT_DIRECTORS + "getAgentDirectorDocuments";
+export const DEACTIVATE_AGENT_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "deactivateAgent";
+export const REACTIVE_AGENT_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "reactiveAgent";
+export const GET_STATUS_HISTORY_BY_AGENT_API =
+  PATH_FOR_AGENT_STATUS_PREFIX + "getStatusHistoryByAgent";
+export const APPROVE_AGENT_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "approveAgent";
+export const REJECT_AGENT_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "rejectAgent";
+export const RESEND_AGENT_LOGIN_MAIL_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "resendAgentLoginMail";
+
+export const IE_PREFIX = PATH_FOR_IE_UTILITY + "ie/";
+export const EXPORT_PREFIX = IE_PREFIX + "export/";
+//prefix for master list
+export const HIERARCHY_PREFIX = PATH_FOR_ADMIN_MODULE + "hierarchy";
+export const HEAD_OFFICE_PREFIX = PATH_FOR_ADMIN_MODULE + "headOffice";
+export const STATE_OFFICE_PREFIX = PATH_FOR_ADMIN_MODULE + "stateOffice";
+export const STATE_PREFIX = PATH_FOR_ADMIN_MODULE + "state";
+
+//products APIS
+export const GET_PRODUCT_LIST_API = `${PATH_FOR_PRODUCT_MASTER_PREFIX}getProductMasterPage`;
+export const ADD_OR_UPDATE_PRODUCT_API = `${PATH_FOR_PRODUCT_MASTER_PREFIX}saveOrUpdateProductMaster`;
+export const DELETE_PRODUCT_MASTER_API = `${PATH_FOR_PRODUCT_MASTER_PREFIX}deleteProductMaster`;
+export const GET_TERMS_AND_CONDITIONS_DROP_DOWN_API = `${PATH_FOR_TERMS_AND_CONDITIONS_PREFIX}getTermAndConditionsDropdown`;
+export const GET_AGREEMENT_DROP_DOWN_API = `${PATH_FOR_AGREEMENT_PREFIX}getAgreementDropdown`;
+
+//agency master API
+export const GET_AGENCY_LIST_API = `${PATH_FOR_AGENCY_MASTER_PREFIX}getAgencyMasterPage`;
+export const ADD_OR_UPDATE_AGENCY_API = `${PATH_FOR_AGENCY_MASTER_PREFIX}saveOrUpdateAgencyMaster`;
+export const DELETE_AGENCY_MASTER_API = `${PATH_FOR_AGENCY_MASTER_PREFIX}deleteAgecyMaster`;
+export const GET_DATA_FOR_CREATE_AGENCY_API = `${PATH_FOR_AGENCY_MASTER_PREFIX}getDataForCreateAgency`;
+export const GET_SCHEME_DROPDOWN_DATA = `${PATH_FOR_AGENCY_MASTER_PREFIX}getDataForSchemeTypeDropdown`;
+export const GET_SCHEME_BY_AGENCY_ID = `${PATH_FOR_AGENCY_MASTER_PREFIX}getDataForSchemeTypeByAgencyDropdown`;
+
+export const GET_DATA_BY_IFSC_CODE_API =
+  PATH_FOR_AGENT_BANK_PREFIX + "getDataByIFSCCode";
+export const GET_DATA_BY_PIN_CODE_API =
+  PATH_FOR_AGENT_PINCODE_PREFIX + "getDataByPinCode";
+export const GET_CITY_FOR_DROPDOWNAPI =
+  PATH_FOR_AGENT_PINCODE_PREFIX + "getCityForDropdown";
+
+// Payout config APIs
+export const GET_DATA_FOR_SCHEME_SETUP_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getDataForSchemesSetupSave";
+
+export const GET_DATA_FOR_AGENT_TYPE_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getDataForAgencyMasterDropdown";
+
+export const GET_DATA_STATE_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getDataForStateOfficeDropdown";
+
+export const GET_BRANCH_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getDataForBranchFromStateIdDropdown";
+
+export const GET_AGENCY_NAME_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getDataForAgentDetailByBranchIdDropdown";
+
+export const SAVE_PAYOUT_CONFIG_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "saveOrUpdateSchemeSetup";
+
+export const GET_PAYOUT_CONFIG_DATA_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getSchemeSetupPage";
+
+export const GET_SCHEME_SETUP_BY_ID =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getSchemesSetupById";
+
+export const DEACTIVE_DATA_BY_ID =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "deactivateSchemesSetupById";
+
+export const GET_BRANCH_API_COMMISSION_TYPE =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getDataForBranchFromStateIdDropdownMultiple";
+
+export const GET_AGENCY_NAME_API_COMMISSION_TYPE =
+  PATH_FOR_SCHEME_SETUP_PREFIX +
+  "getDataForAgentDetailByBranchIdDropdownMultiple";
+
+export const GET_REGULAR_SCHEME_NAME_DROPDOWN_DATA =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getDataForRegularSchemeNameDropdown";
+
+export const GET_AGENCY_NAME_FROM_AGENCY_TYPE_AND_AREA_OFFICE =
+  PATH_FOR_SCHEME_SETUP_PREFIX +
+  "getAgentDetailDropdownByBranchIdMultipleAndAgencyType";
+
+export const APPROVE_PAYOUT_CONFIG =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "approveScheme";
+export const REJECT_PAYOUT_CONFIG =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "rejectScheme";
+
+export const DELETE_PAYOUT_CONFIG =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "deleteScheme";
+  
+export const UPDATE_PAYOUT_DATA_FOR_SCHEME_SETUP_API =
+PATH_FOR_SCHEME_SETUP_PREFIX + "updateFinalizedSchemeSetup";
+
+  export const UPDATE_INCENTIVES_DATA_FOR_SCHEME_SETUP_API =
+  PATH_FOR_INCENTIVES_SCHEME_SETUP_PREFIX + "updateFinalizedSchemeSetup";
+//ADMIN Module
+
+export const GET_ROLES_API = PATH_FOR_ROLE_PREFIX + "getRoles";
+export const ADD_ROLE_API = PATH_FOR_ROLE_PREFIX + "addRole";
+export const UPDATE_ROLE_API = PATH_FOR_ROLE_PREFIX + "updateRole";
+export const DELETE_ROLE_BY_ID_API = PATH_FOR_ROLE_PREFIX + "deleteRoleById";
+export const GET_ROLE_BY_ID_API = PATH_FOR_ROLE_PREFIX + "getRoleById";
+export const GET_ROLES_FOR_ADMIN_API =
+  PATH_FOR_ROLE_PREFIX + "getRolesForAdmin";
+export const GET_USER_BY_ROLE_ID_API =
+  PATH_FOR_ROLE_PREFIX + "getUsersByRoleId";
+export const GET_USERS_FOR_MAPPING_API =
+  PATH_FOR_ROLE_PREFIX + "getUsersForMapping";
+export const GET_MAP_SALES_HIERARCHY_API =
+  PATH_FOR_ROLE_PREFIX + "mapSalesHierarchy";
+export const GET_ALL_PAGES = PATH_FOR_GENERIC_PREFIX + "getAllPages";
+export const GET_ALL_NOTIFICATIONS =
+  PATH_FOR_NOTIFICATION_PREFIX + "getAllNotifications";
+export const GET_ROLE_TYPES_API = PATH_FOR_ROLE_PREFIX + "getRoleTypes";
+export const GET_SYSTEM_AGENT_ROLE =
+  PATH_FOR_ROLE_PREFIX + "getSystemAgentRole";
+
+//User Management
+export const GET_ALL_USERS = PATH_FOR_USER_PREFIX + "getAllUsers";
+export const GET_ROLE_DROPDOWN = PATH_FOR_ROLE_PREFIX + "getRolesForDropdown";
+export const UPDATE_USER_BY_ID = PATH_FOR_USER_PREFIX + "getUserById";
+export const EXPORT_ALL_USERS = PATH_FOR_USER_PREFIX + "exportAllUsers";
+export const GET_ALL_PRODUCT =
+  PATH_FOR_PRODUCT_MASTER_PREFIX + "getProductForDropdown";
+
+export const GET_ALL_HEAD_OFFICE =
+  PATH_FOR_HEAD_OFFICE_PREFIX + "getHeadOfficeForDropdown";
+export const GET_ALL_REGIONAL_OFFICE_BY_HEAD_OFFICE =
+  PATH_FOR_STATE_OFFICE_PREFIX + "getRegionalOfficeByHeadOfficeForDropdown";
+export const GET_ALL_REGIONAL_OFFICE =
+  PATH_FOR_STATE_OFFICE_PREFIX + "getRegionalOfficeForDropdown";
+export const GET_ALL_BACK_OFFICE =
+  PATH_FOR_STATE_OFFICE_PREFIX + "getStateByRegionalOfficeForDropdown";
+export const GET_ALL_AREA_OFFICE =
+  PATH_FOR_BRANCH_PREFIX + "getBranchForDropdownByStateId";
+export const GET_ALL_BRANCH_OFFICE_API =
+  PATH_FOR_BRANCH_PREFIX + "getBranchForDropdown";
+export const GET_ALL_BRANCH_HIERARCHY_API =
+  PATH_FOR_HEAD_OFFICE_PREFIX + "getBranchHierarchy";
+
+export const SAVE_USER_DATA = PATH_FOR_USER_PREFIX + "saveUserDetails";
+export const DELETE_USER = PATH_FOR_USER_PREFIX + "deleteUserById";
+export const GET_STATES = PATH_FOR_STATE_PREFIX + "getState";
+export const GET_USER_DETAILS_FROM_HRMS_API = PATH_FOR_HRMS_PREFIX + "get";
+
+// export const GET_ALL_BRANCH_OFFICE_API =
+//   PATH_FOR_BRANCH_PREFIX + "getBranchForDropdown";
+
+//Login
+export const LOGIN_API = PATH_FOR_ADMIN_PREFIX + "verify";
+export const LOGOUT_API = PATH_FOR_ADMIN_PREFIX + "logout";
+export const FORGET_PASSWORD_API = PATH_FOR_ADMIN_PREFIX + "forgotPassword";
+export const RESET_PASSWORD_API =
+  PATH_FOR_ADMIN_PREFIX + "resetPasswordWithToken";
+export const CHNAGE_PASSWORD_API = PATH_FOR_ADMIN_PREFIX + "changePassword";
+export const RESEND_USER_LOGIN_MAIL_API =
+  PATH_FOR_ADMIN_PREFIX + "resendUserLoginMail";
+export const GET_USER_PROFILE_DETAILS = PATH_FOR_USER_PREFIX + "viewProfile";
+export const GET_TERMS_AND_CONDITION_TEMPLATE_API =
+  PATH_FOR_ADMIN_PREFIX + "getTermsAndConditionsTemplate";
+export const ACCEPT_TERMS_AND_CONDITION_API =
+  PATH_FOR_ADMIN_PREFIX + "acceptTermsAndConditions";
+// export const LOGIN_API = "/login/verify";
+// export const LOGOUT_API = "/login/logout";
+// export const FORGET_PASSWORD_API = "/login/forgotPassword";
+// export const RESET_PASSWORD_API = "/login/resetPasswordWithToken";
+
+//Branch Office APIs
+export const GET_BACK_OFFICE_BY_BRANCH_ID_API =
+  PATH_FOR_BRANCH_OFFICE_PREFIX + "getBackOfficeByBranchId";
+
+//Invoice
+export const GET_BILLING_SETUP_LIST =
+  PATH_FOR_INVOICE_BILLING_SETUP_PREFIX + "getBillingSetupPage";
+export const SET_DEFAULT_BILLING_SETUP =
+  PATH_FOR_INVOICE_BILLING_SETUP_PREFIX + "setDefaultStatusBillingSetup";
+export const SET_ACTIVE_DEACTIVE_BILLING_SETUP =
+  PATH_FOR_INVOICE_BILLING_SETUP_PREFIX + "activeDeactiveBillingSetup";
+export const SAVE_UPDATE_BILLING_SETUP =
+  PATH_FOR_INVOICE_BILLING_SETUP_PREFIX + "saveOrUpdateBillingSetup";
+export const GET_DATA_BY_ID =
+  PATH_FOR_INVOICE_BILLING_SETUP_PREFIX + "getBillingSetupById";
+export const GET_DATA_FOR_DROPDOWN_API =
+  PATH_FOR_INVOICE_GENERIC_API_PREFIX + "getDataForDropDown";
+export const GET_MONTHS_API = PATH_FOR_INVOICE_GENERIC_API_PREFIX + "getMonths";
+export const CHECK_DEDUPE_FOR_BILLING_GST =
+  PATH_FOR_INVOICE_BILLING_SETUP_PREFIX + "checkGSTNoExistInBillingSetup";
+export const CHECK_DEDUPE_FOR_INVOICE_GST =
+  PATH_FOR_AGENT_GST_DETAILS_PREFIX + "checkGSTNoExistInAgentGstDetail";
+export const GET_EXPENSE_CODE_API = PATH_FOR_INVOICE_PREFIX + "getExpenseCode";
+export const CHECK_DUPLICATE_INVOICE_API =
+  PATH_FOR_INVOICE_PREFIX + "checkInvoiceNoValid";
+export const GET_REQUIRED_DATA_FOR_INVOICE_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getRequiredDataForInvoice";
+export const GET_GL_FORM_API = PATH_FOR_INVOICE_PREFIX + "getGlForm";
+
+// Payment Status APIs
+export const GET_INVOICE_FOR_AGENT_PAGE =
+  PATH_FOR_INVOICE_PREFIX + "getInvoiceForAgentPage";
+export const GET_INVOICE_FOR_LENDER_PAGE =
+  PATH_FOR_INVOICE_PREFIX + "getInvoiceForLenderPage";
+export const GET_TOTAL_PAID_UNPAID_AMOUNT =
+  PATH_FOR_INVOICE_PREFIX + "getTotalAmount";
+
+// Cost Sheet APIs
+export const GET_APPLICATION_DETAILS_PAGE_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getApplicationDetailPage";
+export const FREEZE_COSTSHEET_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "freezeCostSheet";
+export const FINALIZE_COSTSHEET_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "finalizeCostSheet";
+export const GET_PAYOUT_CASES_PAGE_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getPayoutCasesPage";
+export const GET_APPLICATION_DETAILS_BY_ID_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getApplicationDetailById";
+export const GET_ACTIVE_CASE_FOR_LENDER =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getActiveCaseLenderPage";
+export const GET_ACTIVE_CASE_FOR_AGENT =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getActiveCaseAgentPage";
+export const GET_CONSOLIDATED_PAYOUT_CASES_PAGE_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getConsolidatedPayoutCasesPage";
+export const GET_CONSOLIDATED_DATA_ON_DROPDDOWN_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getConsolidatedDropDown";
+export const ACCEPT_PAYOUT_API = PATH_FOR_INVOICE_PREFIX + "acceptPayout";
+export const GET_CONSOLIDATED_ApplicationDetailForAgent_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getConsolidatedApplicationDetailForAgent";
+export const EXPORT_COST_SHEET_DATA =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "exportCostSheet";
+export const EXPORT_COST_SHEET_ALL_DATA =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "exportCostSheetAll";
+export const GET_CONSOLIDATE_COST_SHEET_DATA =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getConsolidatedApplicationDetailForAgent";
+export const GET_INDIVIDUAL_LOAN_CASE_DATA =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getIndividualLoancasesForAgent";
+export const GET_STATUS_FILTER_FOR_COST_SHEET =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getStatusFilterForCostsheet";
+
+export const GET_CONSOLIDATE_FREEZ_DATA =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "freezeConsolidatedCostSheets";
+
+export const FINALIZE_ALL_COSTSHEETS =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "finalizeAllCostSheets";
+
+export const FINALIZE_ALL_COSTSHEETS_COUNT =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "finalizeAllCostSheetsCnt";
+
+export const GET_CONSOLIDATE_SUBMIT_DATA =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "finalizeConsolidatedCostSheets";
+
+export const REJECT_CONSOLIDATED_COST_SHEETS =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "rejectConsolidatedCostSheets";
+
+export const ACCEPT_OR_REJECT_PAYOUT_CASES =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "rejectOrAcceptConsolidatedCostSheets";
+
+export const APPROVE_PDD_PENDING_CONSOLIDATED_COSTSHEETS =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "approvePddPendingConsolidatedCostSheets";
+
+export const EXPORT_ACTIVE_CASES =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "exportActiveCases";
+
+//Agent Debit Note
+export const SAVE_DEBIT_NOTE =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "saveDebitNote";
+export const GET_DEBIT_NOTE_LIST =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "getDebitNotePageForAgent";
+export const GET_DEBIT_NOTE_AGENT_PAYEMENT_LIST =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "getDebitNotePageForAgentPayment";
+export const GET_DEBIT_NOTE_BY_ID =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "getDataForSaveDebitNote";
+export const DELETE_DEBIT_NOTE =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "deleteDebitNote";
+
+//Lender Debit Note
+export const GET_LENDER_DEBIT_NOTE_LIST =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "getDebitNotePage";
+export const LENDER_APPROVE =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "approveDebitNote";
+export const LENDER_REJECT =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "rejectDebitNote";
+export const AGENCY_NAME_LIST =
+  PATH_FOR_INVOICE_GENERIC_PREFIX + "findAgentForDropdownByAgencyName";
+export const FILTER_DROPDOWN_DATA =
+  PATH_FOR_INVOICE_GENERIC_PREFIX + "getDataForDropDown";
+export const MONTH_DROPDOWN_DATA =
+  PATH_FOR_INVOICE_GENERIC_PREFIX + "getMonths";
+export const GET_SEPERATE_MONTH =
+  PATH_FOR_INVOICE_GENERIC_PREFIX + "getMonthsSeperate";
+
+//Agent Credit Note
+export const GET_CREDIT_NOTE_LIST =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "getCreditNotePageForAgent";
+export const GET_CREDIT_NOTE_DATA_BY_ID =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "getDataForSaveCreditNote";
+export const GET_CREDIT_NOTE_FOR_AGENT_PAYMENT =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "getCreditNotePageForAgentPayment";
+
+//Lender Credit Note
+export const GET_LENDER_CREDIT_NOTE_LIST =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "getCreditNotePage";
+export const GET_LENDER_CREDIT_NOTE_DATA_BY_ID =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "getDataForSaveCreditNote";
+export const SAVE_UPDATE_CREDIT_NOTE =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "saveCreditNote";
+export const GET_AGENT_CREDIT_DROPDOWN_DATA =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "findAgentByCode";
+export const DELETE_CREDIT_DATA =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "deleteCreditNote";
+export const CREDIT_APPROVE =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "approveCreditNote";
+export const CREDIT_REJECT =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "rejectCreditNote";
+export const GET_INVOICE_NUMBER_LIST =
+  PATH_FOR_INVOICE_PREFIX + "getInvoiceByNo";
+export const GET_INVOICE_BY_ID_API = PATH_FOR_INVOICE_PREFIX + "getInvoiceById";
+export const GET_LOAN_ID_LIST =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getApplicationByInvoiceForDropDown";
+
+export const GET_CREDIT_NOTE_FOR_PAYMENT =
+  PATH_FOR_INVOICE_CREDIT_NOTE_PREFIX + "getCreditNotePageForPayment";
+
+//Invoice Generator
+
+export const GET_INVOICE_LIST_FOR_AGENT =
+  PATH_FOR_INVOICE_PREFIX + "getInvoiceForAgentPage";
+export const GET_INVOICE_LIST_FOR_LENDER =
+  PATH_FOR_INVOICE_PREFIX + "getInvoiceForLenderPage";
+export const GET_AGENCY_TYPE = PATH_FOR_INVOICE_PREFIX + "getAgencyType";
+export const GET_GST_DETAILS_LIST =
+  PATH_FOR_INVOICE_PREFIX + "getAgentGSTDataByAgent";
+export const SAVE_UPDATE_GST_DETAILS =
+  PATH_FOR_INVOICE_PREFIX + "saveAgentGSTDetails";
+export const GET_BANK_DETAILS_LIST =
+  PATH_FOR_INVOICE_PREFIX + "getAgentBankDataByAgent";
+export const GET_GST_DROPDOWN_DATA =
+  PATH_FOR_INVOICE_PREFIX + "findAgentGSTForDropdownByAgent";
+export const GENERATE_INVOICE = PATH_FOR_INVOICE_PREFIX + "generateInvoice";
+export const MOVE_TO_PAYMENT = PATH_FOR_INVOICE_PREFIX + "moveToPayment";
+export const REJECT_INVOICE = PATH_FOR_INVOICE_PREFIX + "rejectInvoice";
+export const E_SIGN_INVOICE = PATH_FOR_INVOICE_PREFIX + "esignInvoice";
+export const MANUAL_SIGN_INVOICE_UPLOAD =
+  PATH_FOR_INVOICE_PREFIX + "manualSignInvoice";
+export const GET_INVOICE_NUMBER_FOR_INDIVIDUAL =
+  PATH_FOR_INVOICE_PREFIX + "generateInvoiceNumber";
+export const GET_NATURE_OF_PAYMENT_DATA =
+  PATH_FOR_NATURE_OF_PAYMENT_PREFIX + "getAllNatureOfPaymentForDropdown";
+export const APPROVE_INVOICE = PATH_FOR_INVOICE_PREFIX + "approveInvoice";
+export const GET_LOAN_DETAILS_BY_INVOICE =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getLoanDetailsByInvoice";
+export const REJECT_INVOICE_AND_SEND_TO_AGENT =
+  PATH_FOR_INVOICE_PREFIX + "rejectInvoiceAndSendToAgent";
+export const GET_LOAN_DETAILS =
+  PATH_FOR_INVOICE_PREFIX + "getLoanDetailsByInvoiceIdAndType";
+
+export const WRITE_OFF_INVOICE = PATH_FOR_INVOICE_PREFIX + "writeOffInvoice";
+export const UPLOAD_ATTACHMENT = PATH_FOR_INVOICE_PREFIX + "addAttachment";
+export const DELETE_ATTACHMENT = PATH_FOR_INVOICE_PREFIX + "removeAttachment";
+
+// Ad Hoc Payout APIs
+
+export const GET_AD_HOC_PAYOUT_PAGE =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "getAdhocPayoutPage";
+export const GET_DATA_FOR_SAVE_AD_HOC_PAYOUT_PAGE =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "getDataForSaveAdhocPayout";
+export const SAVE_AD_HOC_PAYOUT_PAGE =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "saveAdhocPayout";
+export const CHECKER_APPROVE_AD_HOC_PAYOUT =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "checkerApproveAdhocPayout";
+export const REJECT_AD_HOC_PAYOUT =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "rejectAdhocPayout";
+export const APPROVE_AD_HOC_PAYOUT =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "approveAdhocPayout";
+export const DOWNLOAD_SAMPLE_AD_HOC_IMPORT_FILE =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "downloadSampleAdhocImportFile";
+export const IMPORT_AD_HOC_PAYOUT =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "importAdhocPayout";
+export const DELETE_AD_HOC_PAYOUT =
+  PATH_FOR_AD_HOC_PAYOUT_PREFIX + "deleteAdhocPayout";
+
+// generic APIs
+export const GET_DATA_FOR_DROPDOWN =
+  PATH_FOR_INVOICE_GENERIC_PREFIX + "getDataForDropDown";
+export const GET_MONTH_SEPERATE =
+  PATH_FOR_INVOICE_GENERIC_PREFIX + "getMonthsSeperate";
+export const DELETE_GST_DETAILS =
+  PATH_FOR_AGENT_GST_DETAILS_PREFIX + "deleteGstById";
+export const GET_NOTIFICATIONS =
+  PATH_FOR_ALL_NOTIFICATION_PREFIX + "getAllNotificationOfLoginUser";
+export const REMOVE_SEEN_NOTIFICATION =
+  PATH_FOR_ALL_NOTIFICATION_PREFIX + "updateNotiSeen";
+export const GET_CHART_CATEGORY = PATH_FOR_CHART_CATEGORY + "getChartCategory";
+export const GET_AGENT_CODE_DROPDOWN_DATA_BY_HIERARCHY =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "findActiveAgentByCodeAndHierarchy";
+export const GET_DEALER_CODE_DROPDOWN_DATA =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getDealerAgents";
+export const GET_DEALER_NAME_FOR_FILTER_DROPDOWN =
+  PATH_FOR_INVOICE_GENERIC_API_PREFIX +
+  "findAgentForDropdownByDealerAgencyName";
+export const GET_EMPLOYEE_TYPE_DROPDOWN =
+  PATH_FOR_EMPLOYEE_TYPE_PREFIX + "dropdown";
+export const GET_TABLE_CATEGORY = PATH_FOR_TABLE_CATEGORY + "getTableCategory";
+export const GET_REPORTS_CATEGORY =
+  PATH_FOR_REPORTS_CATEGORY + "getReportCategory";
+
+//Payment List
+export const GET_DEBIT_NOTE_PAYMENT_LIST =
+  PATH_FOR_INVOICE_DEBIT_NOTE_PREFIX + "getDebitNotePageForPayment";
+export const GET_ADHOC_PAYMENT_LIST =
+  PATH_FOR_ADHOC_PREFIX + "getAdhocPayoutPageForPayment";
+export const GET_INVOICE_FOR_PAYMENT_BY_ID =
+  PATH_FOR_INVOICE_PREFIX + "getInvoiceById";
+export const GET_ADHOC_DATA_FOR_PAYMENT_BY_ID =
+  PATH_FOR_ADHOC_PREFIX + "getDataForSaveAdhocPayout";
+
+export const EXPORT_INVOICE_FILE =
+  PATH_FOR_INVOICE_PREFIX + "downloadExcelForInvoice";
+export const IMPORT_INVOICE_FILE = PATH_FOR_INVOICE_PREFIX + "importInvoice";
+
+export const UTR_UPDATE_API =
+  PATH_FOR_INVOICE_PREFIX + "updatePaymentStatusWithoutUtr";
+export const UTR_UPDATE_BULK_API =
+  PATH_FOR_INVOICE_PREFIX + "updatePaymentStatusWithoutUtrBulk";
+
+// Third Party APIs
+export const GET_GST_BY_PAN_API = PATH_FOR_KYC_PREFIX + "getGSTByPAN";
+export const CHECK_PAN_AUTHENTICATION_API =
+  PATH_FOR_KYC_PREFIX + "checkPANAuthentication";
+export const GET_NAME_FROM_PAN = PATH_FOR_KYC_PREFIX + "getPANNameByNo";
+export const GET_GST_DETAILS_FROM_GST_NUMBER =
+  PATH_FOR_KYC_PREFIX + "getGSTDetails";
+export const CHECK_IFSC_CODE = PATH_FOR_KYC_PREFIX + "checkIFSCCode";
+export const BANK_ACCOUNT_VERIFY = PATH_FOR_KYC_PREFIX + "bankACVerify";
+export const MOBILE_OTP_AUTH_REQUEST =
+  PATH_FOR_KYC_PREFIX + "mobileOTPAuthRequest";
+export const MOBILE_OTP_AUTH_VERIFY =
+  PATH_FOR_KYC_PREFIX + "mobileOTPAuthVerify";
+export const EMAIL_OTP_AUTH_REQUEST =
+  PATH_FOR_KYC_PREFIX + "emailOTPAuthRequest";
+export const EMAIL_OTP_AUTH_VERIFY = PATH_FOR_KYC_PREFIX + "emailOTPAuthVerify";
+export const CHECK_GST_AUTHENTICATION_API =
+  PATH_FOR_KYC_PREFIX + "checkGSTAuthentication";
+
+//Agent re-registration
+export const GET_AGENT_RE_REGISTRATION_LIST =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getAgentRenewPage";
+
+// dashboard APIs
+export const GET_DASHBOARD_DETAILS = PATH_FOR_DASHBOARD__PREFIX;
+export const GET_DASHBOARD_SINGLE_CHART_DETAILS =
+  PATH_FOR_DASHBOARD__PREFIX + "getDashboardDataSingle";
+export const GET_FYS_TABLE_DATA =
+  PATH_FOR_DASHBOARD__PREFIX + "getFyWiseSummaryTable";
+export const GET_QYS_TABLE_DATA =
+  PATH_FOR_DASHBOARD__PREFIX + "getQuarterWiseSummaryTable";
+export const GET_VYS_TABLE_DATA =
+  PATH_FOR_DASHBOARD__PREFIX + "getDealerWiseSummaryTable";
+export const GET_DASHBOARD_API_FOR_INCENTIVES =
+  PATH_FOR_INCENTIVE_DASHBOARD + "dashboard/";
+export const GET_INCENTIVES_DASHBOARD_SINGLE_CHART_DETAILS =
+  GET_DASHBOARD_API_FOR_INCENTIVES + "getDashboardDataSingle";
+
+export const GET_INCENTIVES_FYS_TABLE_DATA =
+  GET_DASHBOARD_API_FOR_INCENTIVES + "getFyWiseSummaryTableIncentive";
+export const GET_INCENTIVES_QYS_TABLE_DATA =
+  GET_DASHBOARD_API_FOR_INCENTIVES + "getQuarterWiseSummaryTableIncentive";
+export const GET_INCENTIVES_SWS_TABLE_DATA =
+  GET_DASHBOARD_API_FOR_INCENTIVES +
+  'getStaffWiseSummaryTableIncentive'
+
+// collection-scheme-setup APIs
+
+export const GET_DATA_FOR_SCHEME_SETUP_SAVE_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "getDataForSchemesSetupSave";
+export const GET_DATA_FOR_BRANCH_FROM_STATE_ID_DROPDOWN_MULTIPLE_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX +
+  "getDataForBranchFromStateIdDropdownMultiple";
+export const GET_DATA_FOR_AGENCY_MASTER_DROPDOWN_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "getDataForAgencyMasterDropdown";
+export const GET_DATA_FOR_PRODUCT_DROPDOWN_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "getDataForProductDropdown";
+export const GET_DATA_FOR_AGENT_DETAIL_BY_BRANCH_ID_DROPDOWN_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX +
+  "getDataForAgentDetailByBranchIdDropdown";
+export const GET_DATA_FOR_AGENT_DETAIL_BY_BRANCH_ID_DROPDOWN_MULTIPLE_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX +
+  "getDataForAgentDetailByBranchIdDropdownMultiple";
+export const GET_DATA_FOR_BRANCH_FROM_STATE_ID_DROPDOWN_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX +
+  "getDataForBranchFromStateIdDropdown";
+export const GET_DATA_FOR_STATE_OFFICE_DROPDOWN_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "getDataForStateOfficeDropdown";
+export const GET_SCHEME_SETUP_PAGE_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "getSchemeSetupPage";
+export const SAVE_SCHEME_SETUP_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "saveSchemeSetup";
+export const DEACTIVATE_SCHEMES_SETUP_BY_ID_FOR_COLLECTION_API =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "deactivateSchemesSetupById";
+export const GET_COLLECTION_DATA_BY_ID =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "getSchemesSetupById";
+export const GET_SCHEME_TYPE =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX + "getSchemeTypeByAgencyId";
+export const GET_DATA_FOR_AGENT_DETAIL_BY_BRANCH_ID_AND_AGENCY_TYPE_ID =
+  PATH_FOR_COLLECTION_SCHEME_SETUP_PREFIX +
+  "getAgentDetailDropdownByBranchIdMultipleAndAgencyType";
+
+// Active Cases
+export const GET_ACTIVE_CASES_BY_ID_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getActiveCaseById";
+export const GET_SUB_AGENT_FOR_DROPDOWN_PARENT_AGENT_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getSubAgentForDropdownParentAgent";
+export const ADD_UPDATE_SUB_AGENT_TO_ACTIVE_CASE =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "addAndUpdateSubAgentToActiveCase";
+export const GET_ALL_PRODUCT_INCENTIVE = PATH_FOR_PRODUCT_MASTER_PREFIX + 'getAllProduct'
+
+export const GET_ACTIVE_CASES_INCENTIVES = 
+  PATH_FOR_INVOICE_MODULE + PATH_FOR_INCENTIVES_PREFIX + 
+  'getActiveCases';
+
+export const GET_INDIVIDUAL_ACTIVE_CASES_INCENTIVES = 
+PATH_FOR_INVOICE_MODULE + PATH_FOR_INCENTIVES_PREFIX + 
+'getIndividualActiveCases';
+
+export const GET_INDIVIDUAL_ACTIVE_CASES_INCENTIVES_BY_ID = 
+PATH_FOR_INVOICE_MODULE + PATH_FOR_INCENTIVES_PREFIX + 
+'getIndividualActiveCasesById';
+
+// System Setting
+export const GET_SYSTEM_SETTING_LIST_API = `${PATH_FOR_SYSTEM_SETTING_PREFIX}getSettingByConfigType`;
+export const UPDATE_SYSTEM_SETTING_API = `${PATH_FOR_SYSTEM_SETTING_PREFIX}updateSetting`;
+
+// Approval Management
+export const GET_APPROVAL_MANAGEMENT_API = `${PATH_FOR_APPROVAL_MANAGEMENT_PREFIX}getApprovalManagement`;
+export const ADD_OR_UPDATE_APPROVAL_MANAGEMENT_API = `${PATH_FOR_APPROVAL_MANAGEMENT_PREFIX}saveOrUpdateApprovalManagement`;
+export const DELETE_APPROVAL_MANAGEMENT_BY_ID_API = `${PATH_FOR_APPROVAL_MANAGEMENT_PREFIX}deleteApprvalManagementById`;
+export const GET_APPROVAL_MANAGEMENT_BY_ID_API = `${PATH_FOR_APPROVAL_MANAGEMENT_PREFIX}getApprovalManagementbyId`;
+export const GET_APPROVAL_MANAGEMENT_SAVE_DATA_API = `${PATH_FOR_APPROVAL_MANAGEMENT_PREFIX}getDataForApprovalManagementSave`;
+
+//Agent scheme setup
+export const GET_AGENT_SCHEME_SETUP_MAKER_APPROVAL_LIST =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getAgentSchemeSetupPageMaker";
+export const SAVE_AND_SUBMIT_AGENT_SCHEME_SETUP =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "saveAgentSchemeSetup";
+export const REJECT_AGENT_SCHEME =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "rejectAgentScheme";
+export const DEACTIVATE_AGENT_SCHEME =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "deActivateAgentScheme";
+export const GET_AGENT_SCHEME_LIST_FOR_LENDER =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "getAgentPayoutSchemesLender";
+export const GET_AGENT_SCHEME_LIST_FOR_AGENT =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "getAgentPayoutSchemes";
+export const EXPORT_AGENT_SCHEMES =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "exportAgentSchemes";
+export const GET_SCHEMES_SETUP_BY_ID_FOR_AGENT_SCHEME =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getSchemesSetupByIdForAgentScheme";
+export const GET_AGENCY_NAME_DROPDOWN =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getAgencyNameDropDown";
+export const SCHEME_ASSIGNMENT_VALIDATION_API =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "schemeAssignmentValidation";
+export const GET_AGENT_SCHEME_AGENT_WISE =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "getAgentSchemesAgentWise";
+export const GET_SCHEME_SETUP_DROPDOWN =
+  PATH_FOR_SCHEME_SETUP_PREFIX +
+  "schemeSetupForDropdownByConfigurationIdAndAgencyType";
+export const GET_EXPORT_AGENT_SCHEME_AGENT_WISE =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "exportAgentSchemesAgentWise";
+export const GET_AGENT_SCHEME_SETUP =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX +
+  "getSchemesSetupDetailForAgentSchemeValidation";
+export const GET_PAYOUT_SCHEME_DROPDOWN =
+  PATH_FOR_SCHEME_SETUP_PREFIX +
+  "schemeSetupForDropdownByConfigurationIdSearch";
+export const AGENT_TERMS_FOR_ACCEPT_API =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "getTermsForAccept";
+export const GET_TERMS_PDF_API =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "getTermsPdf";
+export const ACCEPT_AGENT_SCHEME_TERMS_API =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "acceptTermsAgentScheme";
+export const GET_AGENT_SCHEME_SETUP_API =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "getSchemeSetupPageAgent";
+
+//TermsCondition APIS
+export const GET_TERMS_AND_CONDITIONS_LIST_API = `${PATH_FOR_TERMS_AND_CONDITIONS_PREFIX}getTermAndConditionPage`;
+export const ADD_OR_UPDATE_TERMS_AND_CONDITIONS_API = `${PATH_FOR_TERMS_AND_CONDITIONS_PREFIX}saveOrUpdateTermAndCondition`;
+export const DELETE_TERMS_AND_CONDITIONS_API = `${PATH_FOR_TERMS_AND_CONDITIONS_PREFIX}deleteTermAndCondition`;
+export const ISACTIVE_TERMS_AND_CONDITIONS_API = `${PATH_FOR_TERMS_AND_CONDITIONS_PREFIX}termAndConditionIsActive`;
+
+//Agreement APIS
+export const GET_AGREEMENT_LIST_API = `${PATH_FOR_AGREEMENT_PREFIX}getAgreementPage`;
+export const ADD_OR_UPDATE_AGREEMENT_API = `${PATH_FOR_AGREEMENT_PREFIX}saveOrUpdateAgreement`;
+export const DELETE_AGREEMENT_API = `${PATH_FOR_AGREEMENT_PREFIX}deleteAgreement`;
+export const ISACTIVE_AGREEMENT_API = `${PATH_FOR_AGREEMENT_PREFIX}agreementIsActive`;
+export const GET_OTP_FOR_AGENT_API = `${PATH_FOR_ADMIN_PREFIX}agreeTermsAndConditionsTemplate`;
+
+//Agent Sub Employee Mapping APIS
+export const GET_AGENT_SUB_EMPLOYEE_MAPPING_API = `${PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX}getAgentSubEmployeesMapping`;
+export const SEARCH_AGENCY_TYPE_BY_DEALER_API = `${PATH_FOR_AGENT_ONBOARDING_PREFIX}searchAgencyTypeByDealer`;
+export const SAVE_SUB_AGENT_MAPPING_API = `${PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX}saveSubAgent`;
+export const SUBMIT_SUB_AGENT_MAPPING_API = `${PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX}submitSubAgentMapping`;
+export const REJECT_SUB_AGENT_MAPPING_API = `${PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX}rejectSubAgentMapping`;
+
+// Report ModulesApi
+export const EXPORT_SUB_AGENT_MAPPING_API = `${PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX}exportSubEmployeeMapping`;
+export const EXPORT_AGENTS_API = `${PATH_FOR_AGENT_ONBOARDING_PREFIX}exportAgent`;
+export const DROPDOWN_DATA_FOR_AGENT_STATUS = `${PATH_FOR_AGENT_ONBOARDING_PREFIX}getAgentStatus`;
+export const EXPORT_ALL_PAYOUT_SCHEME = `${PATH_FOR_AGENT_SCHEME_SETUP_PREFIX}exportAgentSchemesAll`;
+export const EXPORT_AGENT_SCHEMES_REPORT = `${PATH_FOR_SCHEME_SETUP_PREFIX}exportScheme`;
+export const EXPORT_INVOICE_REPORT = `${PATH_FOR_INVOICE_PREFIX}getInvoiceForExportReport`;
+export const EXPORT_AGENTS_PERCENT_PAYOUT = `${PATH_FOR_AGENT_SCHEME_SETUP_PREFIX}exportAgentsPercentPayout`;
+
+//Payout Status
+
+export const GET_PAYOUT_STATUS_LIST_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getPayoutStatusModulePage";
+export const GET_PAYMENT_INFO_FOR_PAYOUT_STATUS_API =
+  PATH_FOR_INVOICE_PREFIX + "getPaymentInformationForPayoutStatusModule";
+export const GET_INVOICE_FOR_PAYOUT_STATUS_API =
+  PATH_FOR_INVOICE_PREFIX + "getInvoiceForPayoutStatusModule";
+export const GET_COST_SHEET_DATA_FOR_PAYOUT_STATUS_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getCostSheetDetailsForPayoutStatusModule";
+export const GET_AGENT_DETAILS_FOR_PAYOUT_STATUS_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getAgentDetailsForPayoutStatusModule";
+export const GET_LOAN_DETAILS_FOR_PAYOUT_STATUS_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getLoanDetailsForPayoutStatusModule";
+export const GET_CONSOLIDATED_CASES_FOR_PAYOUT_STATUS_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getConsolidatedCasesForPayoutStatusModule";
+export const GET_TIMELINE_FOR_PAYOUT_STATUS_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getDataForPayoutStatusModuleTimeline";
+export const GET_STATUS_DROPDOWN_LIST_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getPayoutStatusModuleEnumDropdown";
+export const STATE_DROPDOWN_API = PATH_FOR_STATE_PREFIX + "getStateAndId";
+export const GET_PAYOUT_STATUS_SEARCH_DATA_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX +
+  "getSearchDropdownForPayoutStatusModuleTimeline";
+
+// AgentsAgreement
+export const GET_AGENTS_AGREEMENT_LISTING_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getAgentsAgreement";
+export const GET_TERMS_AND_CONDITIONS_FOR_LENDER_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getTermsAndConditionsForLender";
+export const AGREE_TERMS_AND_CONDITIONS_FOR_LENDER_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "agreeTermsAndConditionsForLender";
+export const ACCEPT_TERMS_AND_CONDITIONS_FOR_LENDER_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "acceptTermsAndConditionsForLender";
+export const GET_TERMS_AND_CONDITIONS_PDF =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "getTermsAndConditionPDF";
+
+//Invoice GL filter api
+
+export const GET_ACCOUNT_IN_FINNACLE_DROPDOWN_API =
+  PATH_FOR_INVOICE_PREFIX + "getAccountInFinnacle";
+export const GET_PAN_NUMBER_DROPDOWN_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "findPanNoForDropdownByPanNo";
+export const GET_DELEAR_ID_DROPDOWN_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "findDealerIdForDropdownBydealerId";
+
+export const GET_DELEAR_CODE_DROPDOWN_API =
+  PATH_FOR_AGENT_ONBOARDING_PREFIX + "findDealerIdForDropdownBydealerCode";
+
+//Payout re run
+export const GET_RE_RUN_LIST =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "getPayoutSchemesExecution";
+export const GET_UPDATE_RUN_DATE =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "updateRunDate";
+export const GET_RUN_AGAIN_API =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "runAgain";
+export const RUN_TODAYS_PAYOUT_SCHEME =
+  PATH_FOR_SCHEME_SETUP_PREFIX + "runCron";
+export const MANUAL_RUN_SCHEME =
+  PATH_FOR_AGENT_SCHEME_SETUP_PREFIX + "manuallyRunScheme";
+
+//document api
+export const GET_DOCUMENT_FROM_URL = PATH_FOR_DOCUMENTS + "get";
+
+/**
+ * Pdd APIs
+ */
+
+export const LOAN_DATA_IMPORT_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "importLoanDataFromExcel";
+/**Below APIs for Staff Setup */
+
+export const GET_STAFF_LIST_API = PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "page";
+
+export const ADD_STAFF_API = PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "save";
+
+export const ACTIVATE_STAFF_API =
+  PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "activate";
+
+export const DECTIVATE_STAFF_API =
+  PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "deactivate";
+
+export const DELETE_STAFF_API = PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "delete";
+
+export const GET_EMPLOYEE_ONBOARDING_LIST_API = EMPLOYEE_PREFIX + "page";
+export const ADD_EMPLOYEE_API = EMPLOYEE_PREFIX + "save";
+export const GET_SINGLE_ONBOARDED_EMPLOYEE_API = EMPLOYEE_PREFIX + "get";
+export const ACTIVATE_EMPLOYEE_API = EMPLOYEE_PREFIX + "activate";
+export const DEACTIVATE_EMPLOYEE_API = EMPLOYEE_PREFIX + "deactivate";
+
+export const GET_EMPLOYEE_TYPE_LIST_API =
+  PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "dropdown";
+
+export const GET_STAFF_NAME_LIST_ON_SEARCH =
+  PATH_FOR_DROPDOWN_PREFIX + "search";
+
+/** PATH for Staff hierarchy */
+
+export const FETCH_STAFF_HIERARCHY_LIST_API =
+  PATH_FOR_STAFF_HIERARCHY_PREFIX + "get";
+
+export const SAVE_STAFF_HIERARCHY_API =
+  PATH_FOR_STAFF_HIERARCHY_PREFIX + "save";
+
+export const ACTIVATE_STAFF_HIERARCHY_API =
+  PATH_FOR_STAFF_HIERARCHY_PREFIX + "activate";
+
+export const LOAN_DATA_AGENT_ONBOARDING_IMPORT_API =
+  PATH_FOR_IMPORT_PREFIX + "agentsFromExcel";
+
+export const PDD_DETAILS_AGENT_LIST_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getPDDAgentList";
+
+export const UPDATE_PDD_DETAILS_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "uploadPDDInformation";
+
+export const SUBMIT_PDD_DETAILS_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "updatePDDStatusToSubmit";
+
+export const PATH_FOR_INCENTIVE_TYPE_DROPDOWN =
+  "/muthoot/incentiveConfig/schemeSetup/getAllIncentiveTypeInDropdown";
+
+export const FETCH_PDD_FOR_LENDER_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getPDDLenderList";
+
+export const UPDATE_PDD_STATUS_FOR_LENDER_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "pddLenderStatus/";
+
+export const APPROVE_PDD_STATUS_FOR_LENDER_API =
+  UPDATE_PDD_STATUS_FOR_LENDER_API + "approved";
+
+export const REJECT_PDD_STATUS_FOR_LENDER_API =
+  UPDATE_PDD_STATUS_FOR_LENDER_API + "rejected";
+
+export const DELETE_PDD_STATUS_API =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "removePDDAttachment";
+/**API PATH for incentives scheme excecution */
+export const GET_INCENTIVES_SCHEME_EXCEUCTION_LIST_API =
+  PATH_FOR_INCENTIVES_SCHEME_SETUP_PREFIX + "getPayoutSchemesExecution";
+
+export const MANUALLY_RUN_INCENTIVE_SCHEME_API =
+  PATH_FOR_INCENTIVES_SCHEME_SETUP_PREFIX + "manuallyRunScheme";
+
+export const RUN_AGAIN_OR_BULK_RUN_INCENTIVE_SCHEME_API =
+  PATH_FOR_INCENTIVES_SCHEME_SETUP_PREFIX + "runAgain";
+//incentives payout config
+export const SAVE_INCENTIVE_PAYOUT_CONFIG =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "saveOrUpdateSchemeSetup";
+export const GET_INCENTIVE_LISTING =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "getSchemeSetupPage";
+export const GET_INCENTIVE_TYPE_BY_EMPLOYEE_ID =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "getIncentiveTypeByEmployeeTypeId";
+export const GET_INCENTIVE_SCHEME_SETUP_BY_ID_API =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "getSchemesSetupById";
+export const GET_ALL_INCENTIVE_DROPDOWN_VALUE_API =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "getAllIncentiveTypeInDropdown";
+export const DEACTIVATE_INCENTIVE_SCHEME =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "deactivateSchemesSetupById";
+export const APPROVE_INCENTIVE_CONFIG_API =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "approveScheme";
+export const REJECT_INCENTIVE_CONFIG_API =
+  PATH_FOR_SCHEME_INCENTIVE_PREFIX + "rejectScheme";
+
+export const GET_STATUS_FOR_PDD_STATUS_DROPDOWN =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "getPDDStatusDropDown";
+
+// export const EXPORT_PDD_STATUS_REPORT =
+//   PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "exportPDDReport";
+
+export const GET_BASE_OFFICE_DROPDOWN =
+  PATH_FOR_BRANCH_PREFIX + "getBranchByLoginIdForDropdown";
+
+export const GET_REPORTING_TO_TYPE_API =
+  PATH_FOR_INCENTIVES_PAYOUT_PREFIX + "hierarchy";
+
+export const GET_REPORTING_TO_NAME_API = EMPLOYEE_PREFIX + "dropdown/search";
+
+export const IMPORT_STAFF_API = EMPLOYEE_PREFIX + "importStaffDataFromExcel";
+
+/* generic */
+export const GET_ALL_BRANCH_OFFICE_CODE = PATH_FOR_BRANCH_PREFIX + "getAllBranchOfficeCode";
+export const EXPORT_REPORT_EMPLOYEEE_SCHEME_API =
+  EXPORT_PREFIX + "employeeScheme";
+
+export const EXPORT_REPORT_ALL_EMPLOYEES_API = EXPORT_PREFIX + "allEmployees";
+
+export const EXPORT_REPORT_INCENTIVES_COST_SHEET_API =
+  EXPORT_PREFIX + "incentiveCostsheet";
+
+export const EXPORT_REPORT_INCENTIVES_ACTIVE_CASE_API =
+  EXPORT_PREFIX + "incentiveActiveCase";
+
+export const IMPORT_INCENTIVES_ACTIVE_CASE =
+  PATH_FOR_INVOICE_MODULE +
+  PATH_FOR_INCENTIVES_PREFIX +
+  "importIncentivesActiveCasesFromExcel";
+
+export const IMPORT_INCENTIVES_HYGIENE =
+  PATH_FOR_INVOICE_MODULE +
+  PATH_FOR_INCENTIVES_PREFIX +
+  "importIncentivesHygieneFactorsFromExcel";
+
+/**Cost sheet incentive */
+
+export const GET_INCENTIVE_COST_SHEET_LIST_API =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX + "insentiveApplicationDetails";
+export const GET_INCENTIVE_COST_SHEET_INDIVIDUAL_LIST_API =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX +
+  "getIndividualIncentiveApplicationDtls";
+export const GET_INCENTIVE_COST_SHEET_DATA_BY_ID =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX + "getApplicationDetailById";
+export const GET_INCENTIVE_COST_SHEET_FINALIZE_BULK_DATA =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX + "finalizeAllCostSheets";
+export const GET_INCENTIVE_COST_SHEET_FINALIZE_INDIVIDUAL_DATA =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX + "finalizeConsolidatedCostSheets";
+export const GET_INCENTIVE_COST_SHEET_FINALIZE_COUNT_DATA =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX + "finalizeAllCostSheetsCnt";
+export const GET_INCENTIVE_COST_SHEET_REJECT_DATA =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX + "rejectConsolidatedCostSheets";
+
+  export const GET_VIEW_PARENT_COST_SHEET_DETAILS_API =
+  PATH_FOR_INCENTIVE_COST_SHEET_PREFIX + "getCostsheetParentViewDetailPopup";
+  export const EXPORT_PDD_STATUS_REPORT =
+  PATH_FOR_INVOICE_APPLICATION_DETAILS_PREFIX + "exportPDDReport";
+
+  export const EZLENDING_LOS_SCHEME_CODE_DROPDOWN_API =
+  PATH_THIRD_PARTY_MODULE + "muthoot/getEzLendingScheme";
+
+/**
+ * Master Creation APIs-
+ */
+
+export const GET_MASTER_LIST_API = HIERARCHY_PREFIX + "/getHierarchy";
+
+export const GET_HIERARCHY_MAPPING = HIERARCHY_PREFIX + "/getHierarchyTree";
+
+export const SAVE_OR_UPDATE_MASTER_API =
+  HIERARCHY_PREFIX + "/saveOrUpdateHierarchy";
+
+export const GET_CHART_STATE_DROPDOWN =
+  HIERARCHY_PREFIX + "/getChartStateDropdown";
+
+export const GET_HEAD_OFFICE_DROPDOWN =
+  HEAD_OFFICE_PREFIX + "/getHeadOfficeForDropdown";
+
+export const GET_REGIONAL_OFFICE_DROPDOWN =
+  STATE_OFFICE_PREFIX + "/getRegionalOfficeForDropdown";
+
+export const GET_STATE_AND_ID_DROPDOWN = STATE_PREFIX + "/getStateAndId";
+
+export const GET_BRANCH_OFFICE_DROPDOWN =
+  STATE_OFFICE_PREFIX + "/getBranchOfficeForDropdown";
+
+  export const IMPORT_REPORT_HIERARCHY_API =
+  PATH_FOR_IMPORT_REPORTS + "importBranchHierarchy";
+
+  export const EXPORT_REPORT_HIERARCHY_API =
+  EXPORT_PREFIX + "branchHierarchy";
